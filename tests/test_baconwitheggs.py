@@ -7,6 +7,21 @@ Refactor -> refactor the code looking for points to improve and apply good
 programming practices.
 
 """
+try:
+    import sys
+    import os
+    
+    sys.path.append(
+        os.path.abspath(
+            os.path.join(
+                os.path.dirname(__file__),
+                '../src'
+            )
+        )
+    )
+except:
+    raise
+
 import unittest
 from baconwitheggs import bacon_with_eggs
 

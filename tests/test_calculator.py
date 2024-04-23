@@ -1,3 +1,18 @@
+try:
+    import sys
+    import os
+    
+    sys.path.append(
+        os.path.abspath(
+            os.path.join(
+                os.path.dirname(__file__),
+                '../src'
+            )
+        )
+    )
+except:
+    raise
+
 import unittest
 from calculator import sum,subtract
 
@@ -24,15 +39,15 @@ class TestCalculadora(unittest.TestCase):
 
     def test_x_not_is_int_or_float_must_return_assertionerror(self):
         with self.assertRaises(AssertionError):
-            sum("10", 0)
+            sum('11', 0)
 
     def test_y_not_is_int_or_float_must_return_assertionerror(self):
         with self.assertRaises(AssertionError):
-            sum(0, "10")
+            sum(11, '0')
 
     def test_subtraction_5_4_must_return_1(self):
         self.assertEqual(subtract(5,4), 1)
 
 
-
-unittest.main(verbosity=2)
+if __name__ == '__main__':
+    unittest.main(verbosity=2)
